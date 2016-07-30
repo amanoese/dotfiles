@@ -1,3 +1,42 @@
+" vimrc に以下のように追記
+
+" プラグインが実際にインストールされるディレクトリ
+let s:dein_dir = expand('~/.cache/dein')
+" dein.vim 本体
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+
+" dein.vim がなければ github から落としてくる
+if &runtimepath !~# '/dein.vim'
+  if !isdirectory(s:dein_repo_dir)
+    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+  endif
+  execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
+endif
+
+" 設定開始
+if dein#load_state(s:dein_dir)
+  call dein#begin(s:dein_dir)
+
+  " プラグインリストを収めた TOML ファイル
+  " 予め TOML ファイル（後述）を用意しておく
+  let g:rc_dir    = expand('~/.dotfiles/deinrc')
+  let s:toml      = g:rc_dir . '/dein.toml'
+  let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
+
+  " TOML を読み込み、キャッシュしておく
+  call dein#load_toml(s:toml,      {'lazy': 0})
+  call dein#load_toml(s:lazy_toml, {'lazy': 1})
+
+  " 設定終了
+  call dein#end()
+  call dein#save_state()
+endif
+
+" もし、未インストールものものがあったらインストール
+if dein#check_install()
+  call dein#install()
+endif
+
 "scriptencoding utf-8
 set background=dark
 set nocompatible
@@ -116,69 +155,6 @@ cmap <C-a> <C-a>
 "	"autocmd guienter * call libcallnr("vimtweak.dll", "EnableCaption", 0)
 "endif
 
-" neobundle.vimの初期化 
-let g:neobundle_default_git_protocol='https'
-call neobundle#begin(expand(neoBundleP))
-	" 読み込むプラグインを記載
-	NeoBundle 'Shougo/unite.vim'
-
-	"shell
-	NeoBundle 'Shougo/vimshell'
-	NeoBundle 'Shougo/vimproc.vim' , {
-\ 'build' : {
-\     'windows' : 'tools\\update-dll-mingw',
-\     'cygwin' : 'make -f make_cygwin.mak',
-\     'mac' : 'make',
-\     'linux' : 'make',
-\     'unix' : 'gmake',
-\    },
-\ }
-
-	" quickrun
-	NeoBundle 'thinca/vim-quickrun'
-
-	" ステータスライン
-	NeoBundle 'itchyny/lightline.vim'
-
-	" インデント
-	NeoBundle 'nathanaelkane/vim-indent-guides'
-
-	" whiteSpace
-	NeoBundle 'bronson/vim-trailing-whitespace'
-
-	" syntacs
-	NeoBundle 'scrooloose/syntastic'
-	NeoBundle 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
-	NeoBundle 'derekwyatt/vim-scala'
-	"NeoBundle "wookiehangover/jshint.vim"
-
-	"git
-	NeoBundle 'tpope/vim-fugitive'
-	NeoBundle 'cohama/agit.vim'
-	NeoBundle 'kmnk/vim-unite-giti.git'
-	NeoBundle 'airblade/vim-rooter'
-
-	" 補完
-	NeoBundle 'Shougo/neocomplcache'
-	NeoBundle 'mattn/emmet-vim'
-	" excelファイル開くために導入
-	NeoBundle 'mattn/webapi-vim'
-	"NeoBundle 'mattn/excelview-vim'
-	NeoBundle 'mattn/startmenu-vim'
-	NeoBundle 'vim-scripts/taglist.vim'
-	NeoBundle 'majutsushi/tagbar'
-
-	" markdown
-	NeoBundle 'plasticboy/vim-markdown'
-	NeoBundle 'kannokanno/previm'
-
-	" brawser
-	NeoBundle 'tyru/open-browser.vim'
-
-	" color scheme
-	NeoBundle 'tomasr/molokai'
-
-call neobundle#end()
 
 " vim-indent-guides
 let g:indent_guides_guide_size=1
@@ -198,23 +174,7 @@ let g:syntastic_mode_map = {
       \ 'active_filetypes': ['javascript'],
       \ 'passive_filetypes': []
       \ }
-"
 
-" markdown
-augroup PrevimSettings
-    autocmd!
-    autocmd BufNewFile,BufRead *.{MD,md,mdwn,mkd,mkdn,mark*} set filetype=markdown
-augroup END
-
-"colorscheme solarized
-if Colorscheme('molokai')
-	colorscheme molokai
-endif
-
-" open-browser.vim
-let g:netrw_nogx = 1 " disable netrw's gx mapping.
-nmap gx <Plug>(openbrowser-smart-search)
-vmap gx <Plug>(openbrowser-smart-search)
 
 " tagbar ?
 nmap <F8> :TagbarToggle<CR>
@@ -224,12 +184,6 @@ nmap <kMinus> <C-x>
 
 " 読み込んだプラグインも含め、ファイルタイプの検出、ファイルタイプ別プラグイン/インデントを有効化する
 filetype plugin indent on
-
-" インストールのチェック
-NeoBundleCheck
-source $VIMRUNTIME/vimrc_example.vim
-source $VIMRUNTIME/mswin.vim
-behave mswin
 
 "set diffexpr=MyDiff()
 "function! MyDiff()
