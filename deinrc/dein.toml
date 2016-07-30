@@ -1,0 +1,117 @@
+[[plugins]]
+repo = 'Shougo/unite.vim'
+
+#shell
+[[plugins]]
+repo = 'Shougo/vimshell'
+
+[[plugins]]
+repo = 'Shougo/vimproc.vim' 
+
+# quickrun
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+
+# ステータスライン
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+
+# インデント
+[[plugins]]
+repo = 'nathanaelkane/vim-indent-guides'
+
+
+# whiteSpace
+[[plugins]]
+repo = 'bronson/vim-trailing-whitespace'
+
+
+# syntacs
+[[plugins]]
+repo = 'scrooloose/syntastic'
+
+[[plugins]]
+repo = 'jelera/vim-javascript-syntax'
+
+[[plugins]]
+repo = 'derekwyatt/vim-scala'
+
+
+#git
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'cohama/agit.vim'
+
+[[plugins]]
+repo = 'kmnk/vim-unite-giti.git'
+
+[[plugins]]
+repo = 'airblade/vim-rooter'
+
+
+# 補完
+[[plugins]]
+repo = 'Shougo/neocomplcache'
+
+[[plugins]]
+repo = 'mattn/emmet-vim'
+
+# excelファイル開くために導入
+[[plugins]]
+repo = 'mattn/webapi-vim'
+
+[[plugins]]
+repo = 'mattn/excelview-vim'
+
+[[plugins]]
+repo = 'mattn/startmenu-vim'
+
+[[plugins]]
+repo = 'vim-scripts/taglist.vim'
+
+[[plugins]]
+repo = 'majutsushi/tagbar'
+hook_add =''' 
+nmap <kPlus> <C-a>
+nmap <kMinus> <C-x>
+'''
+hook_post_source  = '''
+nmap <F8> :TagbarToggle<CR>
+'''
+
+# markdown
+[[plugins]]
+repo = 'plasticboy/vim-markdown'
+hook_add =''' 
+augroup PrevimSettings
+    autocmd!
+    autocmd BufNewFile,BufRead *.{MD,md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+augroup END
+
+'''
+
+[[plugins]]
+repo = 'kannokanno/previm'
+hook_add =''' 
+let g:netrw_nogx = 1 # disable netrw's gx mapping.
+nmap gx <Plug>(openbrowser-smart-search)
+vmap gx <Plug>(openbrowser-smart-search)
+
+'''
+
+# brawser
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+
+
+# color scheme
+[[plugins]]
+repo = 'tomasr/molokai'
+hook_post_source  = '''
+if Colorscheme('molokai')
+	colorscheme molokai
+endif
+
+'''
