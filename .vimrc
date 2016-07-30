@@ -134,12 +134,6 @@ command! Vwrite call Vbac_vim('Vwrite')
 command! Tabex tab sp | Ve | only
 command! Iplog tab new | e C:\taka\local\IPmsg\ipmsg201409-.log | e ++enc=utf-8
 
-" Ctrl+Vの挙動を変更
-nmap <C-v> <C-v>
-cmap <C-v> <C-v>
-" Ctrl+Aの挙動を変更
-nmap <C-;> <C-a>
-cmap <C-a> <C-a>
 
 " 半透明にするやつdll無いと動作はしないです。
 "if executable("vimtweak.dll")
@@ -292,3 +286,10 @@ let g:neocomplcache_force_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 "let g:zipPlugin_ext = '*.zip,*.jar,*.xpi,*.ja,*.war,*.ear,*.celzip,*.oxt,*.kmz,*.wsz,*.xap,*.docx,*.docm,*.dotx,*.dotm,*.potx,*.potm,*.ppsx,*.ppsm,*.pptx,*.pptm,*.ppam,*.sldx,*.thmx,*.crtx,*.vdw,*.glox,*.gcsx,*.gqsx'
 
 "let let g:syntastic_mode_map = {"mode":"active","active_filetypes":["javascript", "json"]}
+
+" Ctrl+Vの挙動を変更
+nmap <C-v> <C-v>
+cmap <C-v> <C-v>
+" Ctrl+Aの挙動を変更
+nmap <C-;> <C-a>
+cmap <C-a> <C-a>
