@@ -43,13 +43,10 @@ set nocompatible
 set number
 
 if has("win32")
-	let neoBundleP='C:\Users\68650048\.vim\bundle'
 	set backupdir=C:\Users\68650048\.vim\vimBackUp
 	set directory=C:\Users\68650048\.vim\vimSwap
 	set encoding=cp932
 	set fileencodings=utf-8,euc-jp,iso-2022-jp,cp932,default,latin,ucs-bom,unicode
-	"set runtimepath+=C:\Users\68650048\.vim\bundle\neobundle.vim
-	set runtimepath+=C:\Users\68650048\.vim\bundle
 	" メニューバー非表示
 	set guioptions=g
 	set guioptions-=T
@@ -60,11 +57,9 @@ if has("win32")
 	" windowWidth
 	set columns=9999
 elseif has("unix") || has("win32unix") && has("job") 
-	let neoBundleP='~/.vim/bundle'
 	set backupdir=~/.vim/vimBackUp
 	set directory=~/.vim/vimSwap
 	set fileencodings=utf-8,euc-jp,iso-2022-jp,cp932,default,latin,ucs-bom,unicode
-	set runtimepath+=~/.vim/bundle/neobundle.vim
 	set fileformat=unix
 	"has vim に書かないとホントはNGぽいけど環境依存はげしそうなので?
 	"http://stackoverflow.com/questions/5698284/in-my-vimrc-how-can-i-check-for-the-existence-of-a-color-scheme
@@ -74,11 +69,9 @@ elseif has("unix") || has("win32unix") && has("job")
 		return !empty(globpath(&rtp, pat))
 	endfunction
 elseif has("win32unix")
-	let neoBundleP='/cygdrive/c/Users/68650048/.vim/bundle'
 	set backupdir=/cygdrive/c/Users/68650048/.vim/vimBackUp
 	set directory=/cygdrive/c/Users/68650048/.vim/vimSwap
 	set fileencodings=utf-8,euc-jp,iso-2022-jp,cp932,default,latin,ucs-bom,unicode
-	set runtimepath+=/cygdrive/c/Users/68650048/.vim/bundle/neobundle.vim
 	set fileformat=dos
 endif
 "set background=light
