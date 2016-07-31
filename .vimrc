@@ -62,6 +62,8 @@ if has("gui_running")
   " GUI is running or is about to start.
   " Maximize gvim window (for an alternative on Windows, see simalt below).
   set lines=999 columns=999
+  " font設定
+  set guifont=MyricaM_M:h12:cSHIFTJIS:qDRAFT
 endif
 
 if has("win32") || has("win64") 
@@ -89,8 +91,6 @@ let g:tlist_javascript_settings = 'javascript;c:class;m:method;f:function;p:prop
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 set tags=tags
-" font設定
-set guifont=MyricaM_M:h12:cSHIFTJIS
 "set guifontwide=Myrica_M:h12
 "set guifont=ゆたぽん（コーディング）:h11
 "set guifontwide=ゆたぽん（コーディング）:h11
@@ -148,9 +148,8 @@ command! Tabex tab sp | Ve | only
 
 " vim-indent-guides
 
-
 " 読み込んだプラグインも含め、ファイルタイプの検出、ファイルタイプ別プラグイン/インデントを有効化する
-filetype plugin indent on
+"filetype plugin indent on
 
 "set diffexpr=MyDiff()
 "function! MyDiff()
@@ -176,7 +175,6 @@ filetype plugin indent on
 "	endif
 "	silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
 "endfunction
-
 
 " Ctrl+Vの挙動を変更
 nmap <C-v> <C-v>

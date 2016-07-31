@@ -4,6 +4,17 @@ repo = 'Shougo/unite.vim'
 #shell
 [[plugins]]
 repo = 'Shougo/vimshell'
+hook_add ='''
+" vimshell setting
+let g:vimshell_interactive_update_time = 10
+let g:vimshell_prompt = $USERNAME."% "
+'''
+hook_post_source  = '''
+" vimshell map
+nnoremap <silent> vp :VimShellPop<CR>
+nnoremap <silent> vs :VimShell<CR>
+nnoremap <silent> vsc :VimShellCreate<CR>
+'''
 
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
@@ -21,6 +32,7 @@ repo = 'itchyny/lightline.vim'
 repo = 'nathanaelkane/vim-indent-guides'
 hook_add ='''
 let g:indent_guides_guide_size=1
+au MyAutoCmd VimEnter * filetype plugin indent on
 '''
 hook_post_source  = '''
 " 読み込んだプラグインも含め、ファイルタイプの検出、ファイルタイプ別プラグイン/インデントを有効化する
