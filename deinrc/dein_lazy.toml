@@ -1,0 +1,24 @@
+[[plugins]]
+repo = 'othree/yajs.vim'
+on_ft ='javascript'
+
+[[plugins]]
+repo = 'mattn/excelview-vim'
+on_ft ='excel'
+
+# markdown
+[[plugins]]
+repo = 'plasticboy/vim-markdown'
+hook_add ='''
+augroup PrevimSettings
+	autocmd!
+	autocmd BufNewFile,BufRead *.{MD,md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+augroup END
+'''
+on_ft='markdown'
+
+[[plugins]]
+repo = 'kannokanno/previm'
+rev = '46-support-latest-open-browser'
+depends = ['plasticboy/vim-markdown','tyru/open-browser.vim']
+on_ft='markdown'
