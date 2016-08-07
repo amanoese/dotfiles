@@ -212,5 +212,10 @@ hook_add = '''
 " Colorscheme イベントの発生が抑制されないよう nented を付ける。
 set background=dark
 au MyAutoCmd VimEnter * nested colorscheme molokai
+'''
 
+[[plugins]]
+repo = 'miyakogi/seiya.vim'
+hook_add = '''
+let g:seiya_auto_enable=1
 '''
