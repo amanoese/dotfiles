@@ -56,6 +56,7 @@ if dein#check_install()
 endif
 
 filetype on
+syntax on
 
 "set background=light
 	"cd c:\taka\local\Vim\
