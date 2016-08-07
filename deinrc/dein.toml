@@ -99,7 +99,7 @@ repo = 'airblade/vim-rooter'
 # 補完
 [[plugins]]
 repo = 'Shougo/neocomplcache'
-hook_post_source  = '''
+hook_add = '''
 " neocomplcache setteing
 "Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 " Disable AutoComplPop.
@@ -202,7 +202,7 @@ IndentGuidesEnable
 # brawser
 [[plugins]]
 repo = 'tyru/open-browser.vim'
-hook_post_source  = '''
+hook_add = '''
 let g:netrw_nogx=1
 nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
