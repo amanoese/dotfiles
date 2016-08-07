@@ -66,6 +66,7 @@ let g:watchdogs_check_BufWritePost_enables = {
       \ 'javascript'     : 1,
       \ }
 '''
+on_event = ['FocusLost', 'CursorHold']
 hook_post_source  = '''
 	call watchdogs#setup(g:quickrun_config)
 '''
