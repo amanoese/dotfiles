@@ -1,5 +1,6 @@
 scriptencoding utf-8
 
+
 " 読み込んだプラグインも含め、ファイルタイプの検出、ファイルタイプ別プラグイン/インデントを有効化する
 filetype off
 
@@ -62,9 +63,8 @@ filetype on
 set background=dark
 set nocompatible
 set number
-
-set backupdir=~/.vim/vimBackUp
-set directory=~/.vim/vimSwap
+"set backupdir=$HOME/.vim/vimBackUp
+"set directory=$HOME/.vim/vimSwap
 set fileencodings=utf-8,euc-jp,iso-2022-jp,cp932,default,latin,ucs-bom,unicode
 
 if has("gui_running")
@@ -92,7 +92,6 @@ elseif has("win32unix")
 	set fileformat=dos
 endif
 
-set swapfile
 let g:tlist_javascript_settings = 'javascript;c:class;m:method;f:function;p:property'
 
 
