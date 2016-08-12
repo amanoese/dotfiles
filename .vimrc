@@ -1,6 +1,5 @@
 scriptencoding utf-8
 
-
 " 読み込んだプラグインも含め、ファイルタイプの検出、ファイルタイプ別プラグイン/インデントを有効化する
 filetype off
 
@@ -72,6 +71,8 @@ if has("gui_running")
   " GUI is running or is about to start.
   " Maximize gvim window (for an alternative on Windows, see simalt below).
   set lines=999 columns=999
+	set transparency=230
+	autocmd GUIEnter * set transparency=230
 endif
 
 if has("win32") || has("win64") 
@@ -81,8 +82,6 @@ if has("win32") || has("win64")
 	set guioptions-=T
 	" ステータスラインの表示
 	set laststatus=2 
-	set transparency=230
-	autocmd GUIEnter * set transparency=230
 	" font設定
 	set guifont=Myrica_M:h12:cSHIFTJIS:qDRAFT
 	"set guifont=MyricaM:h12:cSHIFTJIS:qDRAFT
