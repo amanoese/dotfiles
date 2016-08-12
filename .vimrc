@@ -57,9 +57,6 @@ endif
 filetype on
 syntax on
 
-"set background=light
-	"cd c:\taka\local\Vim\
-
 set background=dark
 set nocompatible
 set number
@@ -78,18 +75,18 @@ if has("gui_running")
 	autocmd GUIEnter * set transparency=230
 endif
 
-if has("win32") || has("win64") 
+if has("win32") || has("win64")
 	"set encoding=cp932
 	" メニューバー非表示
 	set guioptions=g
 	set guioptions-=T
 	" ステータスラインの表示
-	set laststatus=2 
+	set laststatus=2
 	" font設定
 	set guifont=Myrica_M:h12:cSHIFTJIS:qDRAFT
 	"set guifont=MyricaM:h12:cSHIFTJIS:qDRAFT
 	"set guifont=ゆたぽん（コーディング）:h11
-elseif has("unix") || has("win32unix") && has("job") 
+elseif has("unix") || has("win32unix") && has("job")
 	set fileformat=unix
 elseif has("win32unix")
 	set fileformat=dos
@@ -144,45 +141,6 @@ command! Vread call Vbac_vim('Vread')
 command! Vwrite call Vbac_vim('Vwrite')
 
 command! Tabex tab sp | Ve | only
-
-
-" 半透明にするやつdll無いと動作はしないです。
-"if executable("vimtweak.dll")
-"	autocmd guienter * call libcallnr("vimtweak","SetAlpha",220)
-"	"↓はバツボタンとかの場所消す
-"	"autocmd guienter * call libcallnr("vimtweak.dll", "EnableCaption", 0)
-"endif
-
-
-" vim-indent-guides
-
-" 読み込んだプラグインも含め、ファイルタイプの検出、ファイルタイプ別プラグイン/インデントを有効化する
-"filetype plugin indent on
-
-"set diffexpr=MyDiff()
-"function! MyDiff()
-"	let opt = '-a --binary '
-"	if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
-"	if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
-"	let arg1 = v:fname_in
-"	if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
-"	let arg2 = v:fname_new
-"	if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
-"	let arg3 = v:fname_out
-"	if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
-"	let eq = ''
-"	if $VIMRUNTIME =~ ' '
-"		if &sh =~ '\<cmd'
-"			let cmd = '""' . $VIMRUNTIME . '\diff"'
-"			let eq = '"'
-"		else
-"			let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
-"		endif
-"	else
-"		let cmd = $VIMRUNTIME . '\diff'
-"	endif
-"	silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
-"endfunction
 
 " Ctrl+Vの挙動を変更
 nmap <C-v> <C-v>
