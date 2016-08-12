@@ -63,8 +63,11 @@ syntax on
 set background=dark
 set nocompatible
 set number
-"set backupdir=$HOME/.vim/vimBackUp
-"set directory=$HOME/.vim/vimSwap
+set noswapfile
+set clipboard=unnamed,autoselect
+set backupdir=$HOME/.vim/vimBackUp
+set directory=$HOME/.vim/vimSwap
+set undodir=$HOME/.vim/undo
 set fileencodings=utf-8,euc-jp,iso-2022-jp,cp932,default,latin,ucs-bom,unicode
 
 if has("gui_running")
