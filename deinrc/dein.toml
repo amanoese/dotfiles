@@ -40,6 +40,10 @@ repo = 'thinca/vim-quickrun'
 [[plugins]]
 repo = 'cohama/vim-hier'
 
+# syntax error under cursor
+[[plugins]]
+repo = 'dannyob/quickfixstatus'
+
 #?
 [[plugins]]
 repo = 'osyo-manga/shabadou.vim'
@@ -47,6 +51,34 @@ depends = ['Shougo/vimproc']
 
 [[plugins]]
 repo = 'KazuakiM/vim-qfsigns'
+
+# ステータスライン
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+
+# ステータスライン error
+[[plugins]]
+repo = 'KazuakiM/vim-qfstatusline'
+depends = ['itchyny/lightline.vim']
+hook_add = '''
+" :WatchdogsRun後にlightline.vimを更新
+let g:Qfstatusline#UpdateCmd = function('lightline#update')
+
+let g:lightline = {
+    \ 'active': {
+    \   'right': [ [ 'lineinfo' ],
+    \              [ 'percent' ],
+    \              [ 'syntaxcheck' ],
+    \              [ 'fileformat', 'fileencoding', 'filetype' ] ]
+    \ },
+    \ 'component_expand': {
+    \   'syntaxcheck': 'qfstatusline#Update'
+    \ },
+    \ 'component_type': {
+    \   'syntaxcheck': 'error',
+    \ },
+    \ }
+'''
 
 # 非同期でsyntax check
 [[plugins]]
@@ -83,10 +115,6 @@ on_event = ['FocusLost', 'CursorHold']
 hook_post_source  = '''
 	call watchdogs#setup(g:quickrun_config)
 '''
-
-# ステータスライン
-[[plugins]]
-repo = 'itchyny/lightline.vim'
 
 # whiteSpace
 [[plugins]]
