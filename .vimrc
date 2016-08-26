@@ -94,6 +94,8 @@ endif
 
 let g:tlist_javascript_settings = 'javascript;c:class;m:method;f:function;p:property'
 
+"gf directory
+autocmd FileType html setlocal includeexpr=substitute(v:fname,'^\\/','','') | setlocal path+=./;/
 
 " fugit setting
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
