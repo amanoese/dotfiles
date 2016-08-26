@@ -103,6 +103,12 @@ set tags=tags
 set tabstop=4
 " タブを挿入するときの幅
 set shiftwidth=4
+
+" TABキーを押した際にタブ文字の代わりにスペースを入れる
+"set expandtab
+"set tabstop=2
+"set shiftwidth=2
+
 " 自動改行させない
 set tw=0
 " 画面端で改行させない
