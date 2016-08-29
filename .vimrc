@@ -95,6 +95,7 @@ endif
 let g:tlist_javascript_settings = 'javascript;c:class;m:method;f:function;p:property'
 
 "gf directory
+autocmd BufRead,BufNewFile *.ssi setfiletype html
 autocmd FileType html setlocal includeexpr=substitute(v:fname,'^\\/','','') | setlocal path+=./;/
 
 " fugit setting
