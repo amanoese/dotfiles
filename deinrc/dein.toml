@@ -133,6 +133,9 @@ hook_add = '''
 au BufRead,BufNewFile,BufReadPre *.jade set filetype=pug
 '''
 
+[[plugins]]
+repo = 'posva/vim-vue'
+
 #git
 [[plugins]]
 repo = 'tpope/vim-fugitive'
