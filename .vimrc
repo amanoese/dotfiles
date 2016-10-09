@@ -81,8 +81,6 @@ if has("win32") || has("win64")
 	set guioptions=g
 	set guioptions-=T
 	" ステータスラインの表示
-	set laststatus=2
-	" font設定
 	set guifont=Myrica_M:h12:cSHIFTJIS:qDRAFT
 	"set guifont=MyricaM:h12:cSHIFTJIS:qDRAFT
 	"set guifont=ゆたぽん（コーディング）:h11
@@ -101,6 +99,8 @@ autocmd FileType html setlocal includeexpr=substitute(v:fname,'^\\/','','') | se
 " fugit setting
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
+set laststatus=2
+" font設定
 set tags=tags
 " タブを表示するときの幅
 set tabstop=4
@@ -108,9 +108,9 @@ set tabstop=4
 set shiftwidth=4
 
 " TABキーを押した際にタブ文字の代わりにスペースを入れる
-"set expandtab
-"set tabstop=2
-"set shiftwidth=2
+set expandtab
+set tabstop=2
+set shiftwidth=2
 
 " 自動改行させない
 set tw=0

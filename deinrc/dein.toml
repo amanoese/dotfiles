@@ -86,6 +86,10 @@ repo = 'KazuakiM/vim-qfsigns'
 [[plugins]]
 repo = 'itchyny/lightline.vim'
 
+[[plugins]]
+repo = 'renyard/vim-git-flow-format'
+depends = ['itchyny/lightline.vim']
+
 # ステータスライン error
 [[plugins]]
 repo = 'KazuakiM/vim-qfstatusline'
