@@ -97,7 +97,6 @@ depends = ['itchyny/lightline.vim']
 hook_add = '''
 " :WatchdogsRun後にlightline.vimを更新
 let g:Qfstatusline#UpdateCmd = function('lightline#update')
-
 let g:lightline = {
     \ 'active': {
     \   'right': [ [ 'lineinfo' ],
@@ -306,7 +305,7 @@ repo = 'tomasr/molokai'
 hook_add = '''
 " Colorscheme イベントの発生が抑制されないよう nented を付ける。
 set background=dark
-au MyAutoCmd VimEnter * nested colorscheme molokai
+autocmd! VimEnter * nested colorscheme molokai
 '''
 
 [[plugins]]
