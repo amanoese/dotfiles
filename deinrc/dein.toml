@@ -294,6 +294,12 @@ nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
 '''
 
+[[plugins]]
+repo = 'miyakogi/seiya.vim'
+hook_add = '''
+let g:seiya_auto_enable=1
+'''
+
 # color scheme
 [[plugins]]
 repo = 'tomasr/molokai'
@@ -304,7 +310,12 @@ au MyAutoCmd VimEnter * nested colorscheme molokai
 '''
 
 [[plugins]]
-repo = 'miyakogi/seiya.vim'
-hook_add = '''
-let g:seiya_auto_enable=1
+repo = 'thinca/vim-splash'
+depends = ['miyakogi/seiya.vim']
+hook_post_source = '''
+autocmd! VimEnter * SeiyaEnable
 '''
+
+[[plugins]]
+repo = 'amanoese/splash-julia'
+depends = ['thinca/vim-splash']
