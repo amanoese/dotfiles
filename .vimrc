@@ -108,9 +108,19 @@ set tabstop=4
 set shiftwidth=4
 
 " TABキーを押した際にタブ文字の代わりにスペースを入れる
-set expandtab
-set tabstop=2
-set shiftwidth=2
+function! TabSpaceToggle(init)
+  if (&expandtab == "expandtab" || a:init == "init")
+    set expandtab
+    set tabstop=2
+    set shiftwidth=2
+  else
+    set noexpandtab
+    set tabstop=4
+    set shiftwidth=4
+  endif
+endfunction
+command! TabSpaceToggle call TabSpaceToggle('normal')
+call TabSpaceToggle("init")
 
 " 自動改行させない
 set tw=0
