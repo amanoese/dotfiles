@@ -1,6 +1,4 @@
 ln -s ~/.dotfiles/.vimrc ~/.vimrc
 ln -s ~/.dotfiles/.gvimrc ~/.gvimrc
-mkdir ~/.vim
-mkdir ~/.vim/vimSwap
-mkdir ~/.vim/vimBackUp
-mkdir ~/.vim/undo
+ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
+mkdir -p ~/.vim/vimSwap ~/.vim/vimBackUp ~/.vim/undo
