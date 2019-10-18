@@ -22,3 +22,16 @@ repo = 'kannokanno/previm'
 rev = '46-support-latest-open-browser'
 depends = ['plasticboy/vim-markdown','tyru/open-browser.vim']
 on_ft='markdown'
+
+[[plugins]]
+repo = "lambdalisue/vim-django-support"
+on_ft = ["python", "python3", "djangohtml"]
+
+[[plugins]]
+repo = "davidhalter/jedi-vim"
+on_ft = ["python", "python3", "djangohtml"]
+
+[[plugins]]
+repo = "lambdalisue/vim-pyenv"
+depends = ['davidhalter/jedi-vim'],
+on_ft = ["python", "python3", "djangohtml"]

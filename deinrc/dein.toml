@@ -309,6 +309,21 @@ set background=dark
 autocmd! VimEnter * nested colorscheme molokai
 '''
 
+# elm
+[[plugins]]
+repo = 'elmcast/elm-vim'
+
+# Go
+[[plugins]]
+repo = 'fatih/vim-go'
+hook_post_source = '''
+" Goのときはインデントにtabを使う
+set noexpandtab
+set tabstop=4
+set shiftwidth=4
+'''
+
+# other
 [[plugins]]
 repo = 'thinca/vim-splash'
 depends = ['miyakogi/seiya.vim']
