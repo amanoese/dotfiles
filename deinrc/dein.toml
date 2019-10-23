@@ -201,6 +201,13 @@ if !exists('g:neocomplcache_keyword_patterns')
 endif
 let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 
+" neocompleteのせっていこっちが正しい？
+if !exists('g:neocomplcache_omni_patterns')
+  let g:neocomplcache_omni_patterns = {}
+endif
+" Goの設定
+let g:neocomplcache_omni_patterns.go = '\h\w*\.\?'
+
 " Plugin key-mappings.
 inoremap <expr><C-g>     neocomplcache#undo_completion()
 inoremap <expr><C-l>     neocomplcache#complete_common_string()
@@ -245,24 +252,8 @@ let g:neocomplcache_force_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 [[plugins]]
 repo = 'mattn/emmet-vim'
 
-# excelファイル開くために導入
-[[plugins]]
-repo = 'mattn/webapi-vim'
-
 [[plugins]]
 repo = 'mattn/startmenu-vim'
-#[[plugins]]
-#repo = 'vim-scripts/taglist.vim'
-#
-#[[plugins]]
-#repo = 'majutsushi/tagbar'
-#hook_add ='''
-#nmap <kPlus> <C-a>
-#nmap <kMinus> <C-x>
-#'''
-#hook_post_source  = '''
-#nmap <F8> :TagbarToggle<CR>
-#'''
 
 # インデント
 [[plugins]]
@@ -312,16 +303,6 @@ autocmd! VimEnter * nested colorscheme molokai
 # elm
 [[plugins]]
 repo = 'elmcast/elm-vim'
-
-# Go
-[[plugins]]
-repo = 'fatih/vim-go'
-hook_post_source = '''
-" Goのときはインデントにtabを使う
-set noexpandtab
-set tabstop=4
-set shiftwidth=4
-'''
 
 # other
 [[plugins]]

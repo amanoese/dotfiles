@@ -2,10 +2,6 @@
 repo = 'othree/yajs.vim'
 on_ft ='javascript'
 
-[[plugins]]
-repo = 'mattn/excelview-vim'
-on_ft ='excel'
-
 # markdown
 [[plugins]]
 repo = 'plasticboy/vim-markdown'
@@ -35,3 +31,26 @@ on_ft = ["python", "python3", "djangohtml"]
 repo = "lambdalisue/vim-pyenv"
 depends = ['davidhalter/jedi-vim'],
 on_ft = ["python", "python3", "djangohtml"]
+
+
+# Go
+[[plugins]]
+repo = 'fatih/vim-go'
+on_ft='go'
+hook_source = '''
+" Goのときはインデントにtabを使う
+set noexpandtab
+
+" わからないけど追加
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+
+" 保存時に必要なimportを自動的に挿入
+let g:go_fmt_command = "goimports"
+" importされていないパッケージの補完を有効化
+let g:go_gocode_unimported_packages = 1
+'''
