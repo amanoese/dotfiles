@@ -26,7 +26,7 @@ if &runtimepath !~# '/dein.vim'
   if has("win32")
     execute 'set runtimepath^=' . substitute(fnamemodify(s:dein_repo_dir, ':p'),'\\$','','g')
   else
-    execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
+    execute 'set runtimepath+=' . s:dein_repo_dir
   endif
 endif
 
@@ -39,6 +39,13 @@ if dein#load_state(s:dein_dir)
   let g:rc_dir    = expand('~/.dotfiles/deinrc')
   let s:toml      = g:rc_dir . '/dein.toml'
   let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
+
+  " Let dein manage dein
+  call dein#add(s:dein_repo_dir)
+
+  " Add or remove your plugins here like this:
+  call dein#add('Shougo/neosnippet.vim')
+  call dein#add('Shougo/neosnippet-snippets')
 
   " TOML を読み込み、キャッシュしておく
   call dein#load_toml(s:toml,      {'lazy': 0})
@@ -61,7 +68,10 @@ set background=dark
 set nocompatible
 set number
 set noswapfile
-set clipboard=unnamed,autoselect
+set clipboard=unnamed
+if has("win32") || has("win64")
+  set clipboard=unnamed,autoselect
+endif
 set backupdir=$HOME/.vim/vimBackUp
 set directory=$HOME/.vim/vimSwap
 set undodir=$HOME/.vim/undo
@@ -95,9 +105,6 @@ let g:tlist_javascript_settings = 'javascript;c:class;m:method;f:function;p:prop
 "gf directory
 autocmd BufRead,BufNewFile *.ssi setfiletype html
 autocmd FileType html setlocal includeexpr=substitute(v:fname,'^\\/','','') | setlocal path+=./;/
-
-" fugit setting
-set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 set laststatus=2
 " font設定
