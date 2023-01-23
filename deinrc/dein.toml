@@ -178,8 +178,11 @@ repo = 'airblade/vim-rooter'
 
 # 補完
 [[plugins]]
-repo = 'Shougo/neocomplcache'
+repo = 'Shougo/deoplete.nvim'
 hook_add = '''
+let g:deoplete#enable_at_startup = 1
+'''
+hook_post_source = '''
 " neocomplcache setteing
 "Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 " Disable AutoComplPop.
@@ -319,3 +322,7 @@ autocmd! VimEnter * SeiyaEnable
 [[plugins]]
 repo = 'amanoese/splash-julia'
 depends = ['thinca/vim-splash']
+
+[[plugins]]
+repo = 'github/copilot.vim'
+
