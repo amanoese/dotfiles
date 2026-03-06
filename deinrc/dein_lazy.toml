@@ -4,7 +4,7 @@ on_ft ='javascript'
 
 # markdown
 [[plugins]]
-repo = 'plasticboy/vim-markdown'
+repo = 'preservim/vim-markdown'
 hook_add ='''
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_auto_insert_bullets = 0
@@ -19,7 +19,7 @@ on_ft='markdown'
 [[plugins]]
 repo = 'kannokanno/previm'
 rev = '46-support-latest-open-browser'
-depends = ['plasticboy/vim-markdown','tyru/open-browser.vim']
+depends = ['preservim/vim-markdown']
 on_ft='markdown'
 
 [[plugins]]
@@ -32,7 +32,7 @@ on_ft = ["python", "python3", "djangohtml"]
 
 [[plugins]]
 repo = "lambdalisue/vim-pyenv"
-depends = ['davidhalter/jedi-vim'],
+depends = ['davidhalter/jedi-vim']
 on_ft = ["python", "python3", "djangohtml"]
 
 
