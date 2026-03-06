@@ -1,0 +1,39 @@
+name: Neovim Headless Test
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+
+jobs:
+  nvim-headless:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # cache-apt-pkgs-action v1.4.3 (pinned to commit SHA)
+      - name: Cache apt packages
+        uses: awalsh128/cache-apt-pkgs-action@5902b33ae29014e6ca012c5d8025d4346556bd40
+        with:
+          packages: neovim
+          version: 1.0
+
+      - name: Cache dein plugins
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/dein
+          key: ${{ runner.os }}-dein-${{ hashFiles('.vimrc', 'deinrc/*.toml') }}
+          restore-keys: |
+            ${{ runner.os }}-dein-
+
+      - name: Prepare dotfiles path
+        run: ln -s "$GITHUB_WORKSPACE" "$HOME/.dotfiles"
+
+      - name: Headless plugin install and remote plugin update
+        run: nvim --headless -u "$GITHUB_WORKSPACE/.vimrc" "+call dein#install()" "+UpdateRemotePlugins" "+qa"
+
+      - name: Headless startup test
+        run: nvim --headless -u "$GITHUB_WORKSPACE/.vimrc" "+qa"
